@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Calves</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Cow</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @calves.each do |calf| %>
+      <tr>
+        <td><%= calf.name %></td>
+        <td><%= calf.cow %></td>
+        <td><%= link_to 'Show', calf %></td>
+        <td><%= link_to 'Edit', edit_calf_path(calf) %></td>
+        <td><%= link_to 'Destroy', calf, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Calf', new_calf_path %>

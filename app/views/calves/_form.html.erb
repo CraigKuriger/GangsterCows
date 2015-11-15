@@ -1,0 +1,25 @@
+<%= form_for(@calf) do |f| %>
+  <% if @calf.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@calf.errors.count, "error") %> prohibited this calf from being saved:</h2>
+
+      <ul>
+      <% @calf.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :cow_id %><br>
+    <%= f.text_field :cow_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @calf.name %>
+</p>
+
+<p>
+  <strong>Cow:</strong>
+  <%= @calf.cow %>
+</p>
+
+<%= link_to 'Edit', edit_calf_path(@calf) %> |
+<%= link_to 'Back', calves_path %>
