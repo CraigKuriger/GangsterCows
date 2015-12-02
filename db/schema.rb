@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20151106004850) do
     t.text     "description"
     t.string   "image_url"
     t.binary   "image"
+    t.float    "money"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

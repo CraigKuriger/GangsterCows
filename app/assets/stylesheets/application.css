@@ -77,7 +77,11 @@ footer {
     margin: 50px 0;
 }
 
-.panel {
+.panel{
+  display: none;
+}
+
+.chart{
   display: none;
 }
 

@@ -15,43 +15,49 @@
           <% end %>
       </div>
     </div>
-      <div class="col-lg-4">
-          <div class="panel panel-default panel<%= cow.id %>">
-              <div class="panel-heading">
-                  <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Cow Transactions Panel</h3>
-              </div>
-              <div class="panel-body">
-                  <div class="table-responsive">
-                      <table class="table table-bordered table-hover table-striped">
-                          <thead>
-                              <tr>
-                                  <th>Calf Id #</th>
-                                  <th>Order Date</th>
-                                  <th>Order Time</th>
-                                  <th>Amount (USD)</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                            <% cow.calves.each do |calf| %>
-                              <tr>
-                                  <td><%= calf.id %></td>
-                                  <td>10/21/2013</td>
-                                  <td>3:29 PM</td>
-                                  <td>$321.33</td>
-                              </tr>
-                            <% end %>
-                          </tbody>
-                      </table>
-                  </div>
-                  <div class="text-right">
-                      <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
-                  </div>
-              </div>
-          </div>
+    <div class="col-sm-4">
+      <div class="chart chart<%= cow.id %>">
+        <%= pie_chart Cow.group(:name).sum(:money) %>
       </div>
+    </div>
+    <!-- <div class="col-lg-4">
+        <div class="panel panel-default panel<%= cow.id %>">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Cow Transactions Panel</h3>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>Calf Id #</th>
+                                <th>Order Date</th>
+                                <th>Order Time</th>
+                                <th>Amount (USD)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <% cow.calves.each do |calf| %>
+                            <tr>
+                                <td><%= calf.id %></td>
+                                <td>10/21/2013</td>
+                                <td>3:29 PM</td>
+                                <td>$321.33</td>
+                            </tr>
+                          <% end %>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-right">
+                    <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div> -->
   </div>
-
 <% end %>
+
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 
 <hr class="featurette-divider">
 

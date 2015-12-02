@@ -18,12 +18,13 @@
 
 $(document).ready(function(){
 
-    $('.featurette1, .panel1').show();
+    $('.featurette1, .panel1, .chart1').show();
     $('ul li a').click(function(){
         $cow = $(this).attr("class");
-        $('.featurette, .panel').hide();
+        $('.featurette, .panel, .chart').hide();
         $('.featurette' + $cow.slice(-1)).show();
         $('.panel' + $cow.slice(-1)).show();
+        $('.chart' + $cow.slice(-1)).show();
     });
 
 });

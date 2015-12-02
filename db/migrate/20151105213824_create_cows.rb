@@ -6,7 +6,7 @@ class CreateCows < ActiveRecord::Migration
       t.text :description
       t.string :image_url
       t.binary :image
-
+      t.float :money
       t.timestamps null: false
     end
   end
