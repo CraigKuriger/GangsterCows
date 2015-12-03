@@ -1,20 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-  <h2 class="featurette-heading">
-    <%= @cow.name %>
-    <span class="text-muted"><%= @cow.description %></span>
-  </h2>
+  <div class="row">
+      <div class="col-lg-12">
+          <h1 class="page-header">
+              <%= @cow.name %> <small>Statistics Overview</small>
+          </h1>
+          <ol class="breadcrumb">
+              <li class="active">
+                  <i class="fa fa-dashboard"></i> <%= @cow.name %>
+              </li>
+          </ol>
+      </div>
+  </div>
 
+  <div class="row">
+    <div class="col-md-9">
+        <div class="row">
+          <% @cow.calves.each do |calf| %>
+            <div class="col-md-1">
+              <strong>Calf:</strong>
+              <img class="img-responsive" src="<%= @cow.image_url %>">
+            </div>
+          <% end %>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="panel panel-primary text-center">
+            <div class="panel-heading">
+
+                        <div class="huge"><%= @cow.calves.count %></div>
+                        <div>Calves!</div>
+
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+  </div>
 
 <hr  class="featurette-divider"/>
-  <div class="row">
-    <% @cow.calves.each do |calf| %>
-      <div class="col-md-1">
-        <strong>Calf:</strong>
-        <img class="img-responsive" src="<%= @cow.image_url %>">
-      </div>
-    <% end %>
-  </row>
+
 
 <%= link_to 'Edit', edit_cow_path(@cow) %> |
 <%= link_to 'Back', cows_path %>
