@@ -1,26 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>Name:</strong>
+  <h2 class="featurette-heading">
     <%= @cow.name %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= @cow.description %>
-  </p>
-
-  <p>
-    <strong>Image url:</strong>
-    <%= @cow.image_url %>
-  </p>
+    <span class="text-muted"><%= @cow.description %></span>
+  </h2>
 
 
+<hr  class="featurette-divider"/>
   <div class="row">
     <% @cow.calves.each do |calf| %>
       <div class="col-md-1">
         <strong>Calf:</strong>
-        <%= calf.name %>
+        <img class="img-responsive" src="<%= @cow.image_url %>">
       </div>
     <% end %>
   </row>
