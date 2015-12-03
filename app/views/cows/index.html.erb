@@ -42,18 +42,18 @@
                         <thead>
                             <tr>
                                 <th>Calf Id #</th>
-                                <th>Birth Date</th>
-                                <th>The Time</th>
-                                <th>Amount (NZD)</th>
+                                <th>Age</th>
+                                <th>Money (NZD)</th>
+                                <th>Country</th>
                             </tr>
                         </thead>
                         <tbody>
                           <% cow.calves.each do |calf| %>
                             <tr>
                                 <td><%= calf.id %></td>
-                                <td>10/21/2013</td>
-                                <td>3:29 PM</td>
-                                <td>$321.33</td>
+                                <td><%= calf.age %></td>
+                                <td>$<%= calf.money %></td>
+                                <td><%= calf.country %></td>
                             </tr>
                           <% end %>
                         </tbody>
@@ -101,7 +101,18 @@
         </div>
     </div>
 </div>
-
+<div class="row">
+    <div class="col-lg-8">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Country Chart</h3>
+            </div>
+            <div class="panel-body">
+                <%= geo_chart Calf.group(:country).count %>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- <h1>Listing Cows</h1>
