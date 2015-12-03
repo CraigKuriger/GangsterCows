@@ -1,24 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @cow.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @cow.name %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @cow.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @cow.description %>
+  </p>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @cow.image_url %>
-</p>
+  <p>
+    <strong>Image url:</strong>
+    <%= @cow.image_url %>
+  </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @cow.image %>
-</p>
+
+  <div class="row">
+    <% @cow.calves.each do |calf| %>
+      <div class="col-md-1">
+        <strong>Calf:</strong>
+        <%= calf.name %>
+      </div>
+    <% end %>
+  </row>
 
 <%= link_to 'Edit', edit_cow_path(@cow) %> |
 <%= link_to 'Back', cows_path %>

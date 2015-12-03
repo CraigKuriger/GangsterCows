@@ -20,6 +20,8 @@ $(document).ready(function(){
 
     $('.featurette1, .stats1, .chart1').show();
     $('ul li a').click(function(){
+      $('li').removeClass('active')
+      $(this).parent().addClass('active')
         $cow = $(this).attr("class");
         $('.featurette, .stats, .chart').hide();
         $('.featurette' + $cow.slice(-1)).show();

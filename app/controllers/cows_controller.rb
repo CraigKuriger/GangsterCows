@@ -1,15 +1,20 @@
 class CowsController < ApplicationController
   before_action :set_cow, only: [:show, :edit, :update, :destroy]
+  before_action :get_cows
 
   # GET /cows
   # GET /cows.json
   def index
+  end
+
+  def get_cows
     @cows = Cow.all
   end
 
   # GET /cows/1
   # GET /cows/1.json
   def show
+    # @cow = Cow.find(params[:id])
   end
 
   # GET /cows/new
