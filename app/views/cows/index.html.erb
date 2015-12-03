@@ -26,7 +26,9 @@
     <div class="col-md-8">
       <div class="featurette featurette<%= cow.id %>" id="about">
         <img class="featurette-image img-responsive featurette-image<%= cow.id %>" src="<%= cow.image_url %>">
-        <%= link_to 'Show', cow %>
+        <%= link_to cow, class:"btn btn-default", style:"margin-top: -80px;" do %>
+          More About <%= cow.name %>
+        <% end %>
       </div>
     </div>
     <div class="col-lg-4">

@@ -17,8 +17,7 @@
     <div class="col-md-9">
         <div class="row">
           <% @cow.calves.each do |calf| %>
-            <div class="col-md-1">
-              <strong>Calf:</strong>
+            <div class="col-md-2">
               <img class="img-responsive" src="<%= @cow.image_url %>">
             </div>
           <% end %>
@@ -28,8 +27,8 @@
         <div class="panel panel-primary text-center">
             <div class="panel-heading">
 
-                        <div class="huge"><%= @cow.calves.count %></div>
-                        <div>Calves!</div>
+              <div class="huge"><%= @cow.calves.count %></div>
+              <div class="after-huge">Calves!</div>
 
             </div>
             <a href="#">

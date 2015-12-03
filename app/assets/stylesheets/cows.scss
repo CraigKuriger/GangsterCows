@@ -39,6 +39,14 @@
     line-height: normal;
 }
 
+.after-huge {
+    font-size: 30px;
+}
+
+.table-responsive {
+  max-height: 300px;
+}
+
 @media(max-width:1200px) {
     .headline h1 {
         font-size: 140px;
