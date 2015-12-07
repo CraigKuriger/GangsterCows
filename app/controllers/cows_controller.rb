@@ -1,6 +1,6 @@
 class CowsController < ApplicationController
   before_action :set_cow, only: [:show, :edit, :update, :destroy]
-  before_action :get_cows
+  before_action :get_cows, :random_calf_creator
 
   # GET /cows
   # GET /cows.json
@@ -15,6 +15,11 @@ class CowsController < ApplicationController
   # GET /cows/1.json
   def show
     # @cow = Cow.find(params[:id])
+  end
+
+  def random_calf_creator
+    @mother = Cow.offset(rand(Cow.count)).first
+    @mother.calves.create(name: Faker::Lorem.word, age: rand(16), money: Faker::Number.decimal(2), country: Faker::Address.country)
   end
 
   # GET /cows/new
