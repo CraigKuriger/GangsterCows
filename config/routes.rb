@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
-  resources :cows
+
+  # resources :cows, defaults: {format: 'json'} do
+  resources :cows do
+    collection do
+      post 'random_calf_creator'
+    end
+  end
+
   resources :calves
   root 'cows#index'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

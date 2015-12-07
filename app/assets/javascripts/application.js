@@ -29,4 +29,19 @@ $(document).ready(function(){
         $('.chart' + $cow.slice(-1)).show();
     });
 
+    (function loop() {
+        var rand = Math.round(Math.random() * (30000 - 5000)) + 5000;
+        setTimeout(function() {
+                loop();
+                console.log(rand)
+                $.ajax("/cows/random_calf_creator")
+        }, rand);
+    }());
+
+    $('#create-calf').on('click', function(e){
+      e.preventDefault();
+      console.log(e)
+    });
+
+
 });
