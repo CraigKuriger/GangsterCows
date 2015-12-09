@@ -29,19 +29,50 @@ $(document).ready(function(){
         $('.chart' + $cow.slice(-1)).show();
     });
 
-    (function loop() {
-        var rand = Math.round(Math.random() * (30000 - 5000)) + 5000;
-        setTimeout(function() {
-                loop();
-                console.log(rand)
-                $.ajax("/cows/random_calf_creator")
-        }, rand);
-    }());
+    // (function loop() {
+    //     var rand = Math.round(Math.random() * (30000 - 5000)) + 5000;
+    //     setTimeout(function() {
+    //             loop();
+    //             console.log(rand)
+    //             $.ajax("/cows/random_calf_creator")
+    //     }, rand);
+    // }());
 
     $('#create-calf').on('click', function(e){
       e.preventDefault();
       console.log(e)
+
+      var options = {
+        url: "/cows/random_calf_creator",
+        type: 'POST',
+        success: function(){
+          console.log("Qwerty")
+        },
+        error: function(){
+          console.log("Grumpy Cat")
+        }
+      };
+      $.ajax(options)
     });
 
+    $('#cow-calf').on('click', function(e){
+      e.preventDefault();
+      console.log(e)
+      var $target = $(e.target);
+      var cow = $target.parent();
+      var id = cow.attr('id');
+      console.log($)
+      var options = {
+        url: "/cows/random_calf_creator",
+        type: 'POST',
+        success: function(){
+          console.log("Qwerty")
+        },
+        error: function(){
+          console.log("Grumpy Cat")
+        }
+      };
+      $.ajax(options)
+    });
 
 });
