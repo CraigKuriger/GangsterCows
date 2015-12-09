@@ -55,21 +55,21 @@ $(document).ready(function(){
       $.ajax(options)
     });
 
-    $('#cow-calf').on('click', function(e){
+    $('.cow-calf').on('click', function(e){
       e.preventDefault();
-      console.log(e)
-      var $target = $(e.target);
-      var cow = $target.parent();
-      var id = cow.attr('id');
-      console.log($)
+      var id = $(e.target).attr('id');
       var options = {
-        url: "/cows/random_calf_creator",
+        url: "/cows/cow_calf_creator/" + id,
         type: 'POST',
+        dataType: 'json',
+        data: id,
+
         success: function(){
           console.log("Qwerty")
         },
-        error: function(){
+        error: function(data){
           console.log("Grumpy Cat")
+          console.log(data)
         }
       };
       $.ajax(options)

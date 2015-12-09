@@ -19,18 +19,18 @@ class CowsController < ApplicationController
 
   def random_calf_creator
     @mother = Cow.offset(rand(Cow.count)).first
-    @result = @mother.calves.create(name: Faker::Lorem.word, age: rand(16), money: Faker::Number.decimal(2), country: Faker::Address.country)
+    @calf = @mother.calves.create(name: Faker::Lorem.word, age: rand(16), money: Faker::Number.decimal(2), country: Faker::Address.country)
     @mother.save
     # render json: {},  status: 200
-    # render json: @result.to_json
+    render json: @calf.to_json
   end
 
   def cow_calf_creator
-    @mother = Cow.find(params[:id])
-    @mother.calves.create(name: Faker::Lorem.word, age: rand(16), money: Faker::Number.decimal(2), country: Faker::Address.country)
-    @mother.save
-    # render json: {},  status: 200
-    # render json: @result.to_json
+    @calf = Cow.where(params[:id])
+    # @calf = Cow.find(params[:id])
+    @calf.calves.create(name: Faker::Lorem.word, age: rand(16), money: Faker::Number.decimal(2), country: Faker::Address.country)
+    @calf.save
+    render json: @calf.to_json
   end
 
   # GET /cows/new

@@ -4,12 +4,13 @@ Rails.application.routes.draw do
   resources :cows do
     collection do
       post 'random_calf_creator'
+      post 'cow_calf_creator'
     end
   end
 
   resources :calves
   root 'cows#index'
-
+  get '/cows/cow_calf_creator/:id', to: 'cows#cow_calf_creator'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
