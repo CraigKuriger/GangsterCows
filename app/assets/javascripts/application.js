@@ -38,17 +38,17 @@ $(document).ready(function(){
     //     }, rand);
     // }());
 
-    $('#create-calf').on('click', function(e){
+    $('.random-calf').on('click', function(e){
       e.preventDefault();
+      var id = $(e.target).attr('id');
+              console.log(id)
       var options = {
         url: "/cows/random_calf_creator",
         type: 'POST',
         success: function(){
-          console.log($('.calf-div'))
           $('.calf-div').last().after(
-
               '<div class="col-lg-1 col-md-2 col-sm-3 col-xs-4">' +
-                '<img class="img-responsive" src="http://craigkuriger.com/Cow4.png"/>' +
+                '<img class="img-responsive" src="http://craigkuriger.com/' + id + '.png"/>' +
               '</div>'
           );
         },
